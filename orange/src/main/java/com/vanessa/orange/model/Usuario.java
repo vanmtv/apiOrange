@@ -1,5 +1,6 @@
 package com.vanessa.orange.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,11 +13,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "tb_usuario")
 public class Usuario {
 
 	@Id
@@ -34,6 +35,12 @@ public class Usuario {
 	@Column(unique = true)
 	@Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$", message = "Favor seguir o padrão 000.000.000-00")
 	private String cpf;
+	
+	@NotNull
+	@Column(unique = true)
+	@JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate datanascimento;
+	
 
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnoreProperties("usuario")
@@ -71,6 +78,8 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
+
+
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
@@ -80,4 +89,5 @@ public class Usuario {
 	}
 
 
+	
 }

@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @Entity
-@Table(name="endereco")
+@Table(name="tb_endereco")
 @JsonPropertyOrder({ "id", "cep", "logradouro", "numero", "complemento", "bairro", "localidade", "uf" })
 public class Endereco {
 	
