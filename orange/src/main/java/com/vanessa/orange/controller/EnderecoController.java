@@ -1,5 +1,4 @@
 package com.vanessa.orange.controller;
-
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -24,7 +23,7 @@ import com.vanessa.orange.service.ApiService;
 
 @RestController
 @RequestMapping("/endereco")
-@EnableFeignClients(basePackages = {"com.neuwirt.orange.service","com.neuwirt.orange.controller"})
+@EnableFeignClients(basePackages = {"com.vanessa.orange.service","com.vanessa.orange.controller"})
 public class EnderecoController {
 	
 	@Autowired
